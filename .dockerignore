@@ -1,0 +1,11 @@
+Dockerfile
+.dockerignore
+docker-compose.*
+
+.DS_Store
+.git
+.gitignore
+.idea
+
+/tests_output
+/node_modules

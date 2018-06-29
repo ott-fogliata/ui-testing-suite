@@ -1,0 +1,61 @@
+version: '2'
+
+services:
+
+  web:
+    image: mycargus/hello_docker_world:latest
+    environment:
+      VIRTUAL_HOST: hello.docker
+
+  nightwatch:
+    build:
+      context: .
+    environment:
+      NODE_ENV: test
+    depends_on:
+      - web
+      - hub
+
+  hub:
+    image: selenium/hub:3.0.1
+    environment:
+      GRID_BROWSER_TIMEOUT: 120000
+      GRID_TIMEOUT: 120000
+      VIRTUAL_HOST: selenium.hub.docker
+    ports:
+      - "4444:4444"
+
+  firefox:
+    image: selenium/node-firefox:3.0.1
+    environment: &SELENIUM_NODE_ENV
+      # this is a necessary workaround due to a known bug
+      # https://github.com/SeleniumHQ/docker-selenium/issues/133
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+    depends_on:
+      - hub
+
+  chrome:
+    image: selenium/node-chrome:3.0.1
+    environment:
+      <<: *SELENIUM_NODE_ENV
+    depends_on:
+      - hub
+
+  chrome-debug:
+    image: selenium/node-chrome-debug:3.0.1
+    environment:
+      <<: *SELENIUM_NODE_ENV
+    ports:
+      - "5900:5900"
+    depends_on:
+      - hub
+
+  firefox-debug:
+    image: selenium/node-firefox-debug:3.0.1
+    environment:
+      <<: *SELENIUM_NODE_ENV
+    ports:
+      - "5901:5900"
+    depends_on:
+      - hub

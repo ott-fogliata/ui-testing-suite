@@ -1,0 +1,40 @@
+{
+  "name": "docker-grid-nightwatch",
+  "version": "1.0.0",
+  "description": "A dockerized Selenium grid for executing Selenium-driven Nightwatch.js tests against your dockerized web app",
+  "main": "",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "nightwatch": "^0.9.16"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "bin/com/build",
+    "debug_start": "bin/com/debug_start",
+    "debug_test": "bin/com/debug_test",
+    "nightwatch": "nightwatch -e chrome,firefox",
+    "nightwatch-debug": "nightwatch -e chrome-debug,firefox-debug",
+    "start": "bin/com/start",
+    "stop": "bin/com/stop",
+    "test": "bin/com/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mycargus/docker-grid-nightwatch.git"
+  },
+  "keywords": [
+    "docker",
+    "selenium",
+    "grid",
+    "nightwatch",
+    "javascript"
+  ],
+  "author": "Michael Hargiss",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mycargus/docker-grid-nightwatch/issues"
+  },
+  "homepage": "https://github.com/mycargus/docker-grid-nightwatch#readme"
+}
