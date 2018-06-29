@@ -42,7 +42,8 @@ RUN apk del ${TEMPORARY_DEPENDENCIES}
 
 # create dedicated directory
 RUN mkdir -p $APP_DIR
-RUN mkdir -p $APP_DIR/tests_output/screenshots
+RUN mkdir -p $APP_DIR/reports/
+RUN mkdir -p $APP_DIR/reports/screenshots
 ADD bin/bash/entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
 

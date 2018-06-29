@@ -11,7 +11,7 @@ module.exports = {
       .url(nightwatchConfig.test_settings.default.launch_url)
       .waitForElementVisible('#test', 60000)
       .assert.containsText('#test', 'Hello, Docker World!')
-      .saveScreenshot('/home/docker/app/tests_output/screenshots/test.png')
+      .saveScreenshot('/home/docker/app/reports/screenshots/test.png')
       // .assert.containsText('#test', 'this assertion will fail')
       .end();
 

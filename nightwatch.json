@@ -1,5 +1,10 @@
 {
   "src_folders" : ["tests"],
+  "output_folder" : "reports",
+  "custom_commands_path" : "extensions",
+  "custom_assertions_path" : "",
+  "page_objects_path" : "",
+  "globals_path" : "",
   "test_settings" : {
     "default" : {
       "launch_url": "http://web",
@@ -10,7 +15,7 @@
       "screenshots" : {
         "enabled" : true,
         "on_failure" : true,
-        "path" : "tests_output/screenshots"
+        "path" : "reports/screenshots"
       }
     },
     "chrome" : {

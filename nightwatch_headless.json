@@ -1,5 +1,5 @@
 {
-  "src_folders" : ["jobs"],
+  "src_folders" : ["tests"],
   "output_folder" : "reports",
   "custom_commands_path" : "extensions",
   "custom_assertions_path" : "",

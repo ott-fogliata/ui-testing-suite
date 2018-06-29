@@ -7,11 +7,11 @@ container=nightwatch_grid_results
 function cleanup() {
   exit_code=$?
 
-  docker cp $container:/home/docker/app/tests_output .
+  docker cp $container:/home/docker/app/reports .
   docker rm -fv $container > /dev/null
 
   if [[ "$exit_code" == "1" ]]; then
-    printf "\n Test failure! View screenshots in tests_output/screenshots. \n"
+    printf "\n Test failure! View screenshots in reports/screenshots. \n"
   fi
 }
 
