@@ -1,11 +1,12 @@
 selenium-debug.log
 .idea
+.vs-code
+.DS_Store
+
 node_modules
 output/*
 reports/*
 
-.idea
-.DS_Store
 /tests_output
 
 # Dependency directory

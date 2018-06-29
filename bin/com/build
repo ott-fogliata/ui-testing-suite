@@ -2,6 +2,6 @@
 
 # Builds the nightwatch docker image
 
-./bin/stop
+./bin/com/stop
 
 docker-compose build --pull nightwatch

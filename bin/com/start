@@ -2,6 +2,6 @@
 
 # Starts the app under test, the Selenium hub, and the Selenium browser nodes
 
-./bin/stop
+./bin/com/stop
 
 docker-compose up -d web hub chrome firefox

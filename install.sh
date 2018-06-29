@@ -1,42 +1,89 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-sudo apt-get install openjdk-8-jre-headless
-sudo apt-get install nodejs-legacy
-sudo apt-get install npm
-sudo npm install -g nightwatch
-sudo npm install  js-yaml
+RED='\033[0;31m'
+PRP='\033[0;35m' # purple
+GRN='\033[0;32m' # green
+YLW='\033[0;33m' # yellow
+#
+LRD='\033[0;31m' # light red
+LBL='\033[0;34m' # light blue
+LGR='\033[0;32m' # light green
+#
+DGA='\033[1;30m' # dark grey
+BLK='\033[0;30m' # black
+#
+NC='\033[0m' # No Color
 
-# Add Google Chrome's repo to sources.list
-echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list
+echo
+echo
+echo -e "${DGA} ------------------------------------------- ${NC}"
+echo -e "${LBL}          Selenium Grid & Nightwatch         ${NC}"
+echo -e "${DGA} ------------------------------------------- ${NC}"
+echo -e "${DGA} Installing Dependencies... ${NC}"
+echo
+echo
 
-# Install Google's public key used for signing packages (e.g. Chrome)
-# (Source: http://www.google.com/linuxrepositories/)
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+# Get Docker CE for Ubuntu
+# https://docs.docker.com/install/linux/docker-ce/ubuntu/
+function dockerSetup {
 
-# Update apt sources:
-sudo apt-get update
+    echo -e "${DGA}"
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+    sudo apt-get remove -y docker docker-engine docker.io
+    sudo apt-get update
+    sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository \
+       "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+       $(lsb_release -cs) \
+       stable"
+    sudo apt update
+    sudo docker run hello-world
+    sudo apt install -y docker-ce
+    sudo systemctl enable docker
+    sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+    docker-compose --version
+    echo -e "${NC}"
 
-# Install Python, pip, Selenium:
-sudo apt-get -y install python python-pip
-sudo pip install selenium
-sudo apt-get -y install default-jre  # if not installed yet
-sudo npm install protractor -g
+}
 
-# Install Google Chrome:
-sudo apt-get -y install libxpm4 libxrender1 libgtk2.0-0 libnss3 libgconf-2-4
-sudo apt-get -y install google-chrome-stable
+echo -n " Do you want to install and setting Docker (y/n)? "
+read answer
 
-# Dependencies to make "headless" chrome/selenium work:
-sudo apt-get -y install xvfb gtk2-engines-pixbuf
-sudo apt-get -y install xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    dockerSetup
+else
+    echo " Skipping Docker Setup..."
+fi
 
-# Optional but nifty: For capturing screenshots of Xvfb display:
-sudo apt-get -y install imagemagick x11-apps
+echo -e "${DGA}"
 
-# Make sure that Xvfb starts everytime the box/vm is booted:
-echo "Starting X virtual framebuffer (Xvfb) in background..."
-Xvfb -ac :99 -screen 0 1280x1024x16 &
-export DISPLAY=:99
+sudo apt install -y ruby
+sudo gem install dory
 
-# Optionally, capture screenshots using the command:
-#xwd -root -display :99 | convert xwd:- screenshot.png
+echo -e "${NC}"
+
+
+# ------------------------------------------------------------------------------------------------------
+#  Dory
+# ------------------------------------------------------------------------------------------------------
+#  Dory lets you forget about IP addresses and port numbers while you are developing
+#  your application. Through the magic of local DNS and a reverse proxy, you can access
+#  your app at the domain of your choosing.
+#  For example, http://myapp.docker or http://this-is-a-really-long-name.but-its-cool-cause-i-like-it
+# ------------------------------------------------------------------------------------------------------
+#  dory attach          # Attach to the output of a docker service container
+#  dory config-file     # Write a default config file
+#  dory down            # Stop all dory services
+#  dory help [COMMAND]  # Describe available commands or one specific command
+#  dory ip              # Grab the IPv4 address of a running dory service
+#  dory pull            # Pull down the docker images that dory uses
+#  dory restart         # Stop and restart all dory services
+#  dory status          # Report status of the dory services
+#  dory up              # Bring up dory services (nginx-proxy, dnsmasq, resolv)
+#  dory upgrade         # Upgrade dory to the latest version
+#  dory version         # Check current installed version of dory
+# ------------------------------------------------------------------------------------------------------
