@@ -1,5 +1,6 @@
 {
-  "name": "docker-grid-nightwatch",
+  "name": "UITest",
+  "config": { "testFile": "" },
   "version": "1.0.0",
   "description": "A dockerized Selenium grid for executing Selenium-driven Nightwatch.js tests against your dockerized web app",
   "main": "",
@@ -7,18 +8,17 @@
     "test": "tests"
   },
   "dependencies": {
+    "gremlins.js": "^0.1.0",
+    "js-yaml": "^3.12.0",
     "nightwatch": "^0.9.16"
   },
   "devDependencies": {},
   "scripts": {
     "build": "bin/com/build",
-    "debug_start": "bin/com/debug_start",
-    "debug_test": "bin/com/debug_test",
-    "nightwatch": "nightwatch -e chrome,firefox",
-    "nightwatch-debug": "nightwatch -e chrome-debug,firefox-debug",
-    "start": "bin/com/start",
+    "nightwatch": "nightwatch -e chrome $npm_package_config_testFile",
+    "start": "bin/com/start $@",
     "stop": "bin/com/stop",
-    "test": "bin/com/test"
+    "test": "bin/com/test $npm_package_config_testFile"
   },
   "repository": {
     "type": "git",

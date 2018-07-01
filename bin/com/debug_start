@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Starts the app under test, the Selenium hub, and the Selenium *debug* browser nodes
-
-./bin/com/stop
-
-docker-compose up -d web hub chrome-debug firefox-debug

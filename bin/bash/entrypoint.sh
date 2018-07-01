@@ -1,10 +1,7 @@
 #!/bin/sh
 
-sudo chown docker:docker -R  .
-ls -l
-
-if [ -n "$DEBUG" ] ; then
-    npm run nightwatch-debug
+if [ -n "$TESTFILE" ] ; then
+    npm run nightwatch --UITest:testFile=${TESTFILE}
 else
     npm run nightwatch
 fi

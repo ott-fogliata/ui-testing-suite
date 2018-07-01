@@ -2,4 +2,5 @@
 
 # kills and removes docker containers
 
+docker stop ui-testing-suite_hub_1
 docker-compose kill && docker-compose rm -vf

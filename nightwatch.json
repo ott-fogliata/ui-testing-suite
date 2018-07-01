@@ -4,37 +4,41 @@
   "custom_commands_path" : "extensions",
   "custom_assertions_path" : "",
   "page_objects_path" : "",
+
+  "selenium" : {
+    "start_process" : false,
+    "server_path" : "",
+    "log_path" : "",
+    "port" : 4444
+  },
+
   "test_settings" : {
-    "default" : {
+    "default": {
       "launch_url": "http://web",
-      "selenium_host"  : "hub",
+      "selenium_host": "hub",
       "desiredCapabilities": {
         "browserName": "chrome"
       },
-      "screenshots" : {
-        "enabled" : true,
-        "on_failure" : true,
-        "path" : "reports/screenshots"
+      "screenshots": {
+        "enabled": true,
+        "on_failure": true,
+        "path": "reports/screenshots"
       }
     },
-    "chrome" : {
+    "chrome": {
       "desiredCapabilities": {
-        "browserName": "chrome"
+        "browserName": "chrome",
+        "chromeOptions": {
+          "args": [
+            "start-maximized"
+          ]
+        }
       }
     },
-    "firefox" : {
+    "firefox": {
       "desiredCapabilities": {
-        "browserName": "firefox"
-      }
-    },
-    "chrome-debug" : {
-      "desiredCapabilities": {
-        "browserName": "chrome"
-      }
-    },
-    "firefox-debug" : {
-      "desiredCapabilities": {
-        "browserName": "firefox"
+        "browserName": "firefox",
+        "marionette": true
       }
     }
   }
