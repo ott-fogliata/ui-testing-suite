@@ -7,5 +7,5 @@ docker-compose.*
 .gitignore
 .idea
 
-/tests_output
+/reports
 /node_modules

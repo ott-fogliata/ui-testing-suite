@@ -16,7 +16,7 @@ function cleanup() {
   fi
 }
 
-trap cleanup INT TERM EXIT
+#trap cleanup INT TERM EXIT
 
 docker-compose run --name $container nightwatch
 

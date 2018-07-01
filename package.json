@@ -31,7 +31,7 @@
     "nightwatch",
     "javascript"
   ],
-  "author": "Michael Hargiss",
+  "author": "Ottavio Fogliata",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mycargus/docker-grid-nightwatch/issues"

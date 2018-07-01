@@ -22,6 +22,7 @@ RUN groupadd -r $USER && useradd --no-log-init -r -g $USER $USER
 ###
 
 RUN apk --no-cache add \
+    --update \
     nodejs \
     nodejs-npm \
     # clean up obsolete files
@@ -42,7 +43,6 @@ RUN apk del ${TEMPORARY_DEPENDENCIES}
 
 # create dedicated directory
 RUN mkdir -p $APP_DIR
-RUN mkdir -p $APP_DIR/reports/
 RUN mkdir -p $APP_DIR/reports/screenshots
 ADD bin/bash/entrypoint.sh /entrypoint.sh
 RUN chmod 755 /entrypoint.sh
@@ -51,6 +51,7 @@ RUN chmod 755 /entrypoint.sh
 ADD package.json $APP_DIR
 # change rights of the folder containing the newly copied content
 RUN chown -R $USER $HOME
+RUN chown $USER:$USER -R $APP_DIR/reports
 # switch to docker user to ensure correct permissions for npm dependencies
 USER $USER
 
