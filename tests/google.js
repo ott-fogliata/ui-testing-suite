@@ -1,4 +1,4 @@
-var loadScript = function(source, callback) {
+var loadScript = function(source) {
     var head = document.getElementsByTagName('head')[0];
     var scripts = head.getElementsByTagName('script');
     var found = false;
@@ -17,11 +17,10 @@ var loadScript = function(source, callback) {
                 if (script.readyState === 'loaded' ||
                     script.readyState === 'complete') {
                     script.onreadystatechange = null;
-                    callback();
                 }
             };
         } else {  //Others
-            script.onload = callback;
+            // script.onload = callback;
         }
         script.src = source;
         head.appendChild(script);
@@ -29,14 +28,13 @@ var loadScript = function(source, callback) {
     }
 };
 
-var unleashGremlins = function(ttl, callback) {
+var unleashGremlins = function(ttl) {
     function stop() {
         horde.stop();
-        callback();
     }
     var horde = window.gremlins.createHorde();
     horde.seed(1234);
-    horde.after(callback);
+    // horde.after(callback);
     window.onbeforeunload = stop;
     setTimeout(stop, ttl);
     horde.unleash();
@@ -48,9 +46,34 @@ module.exports = {
             .url('http://www.google.com')
             .waitForElementVisible('body', 1000)
             .setValue('input[type=text]', 'nightwatch')
-            .executeAsync(loadScript, './../node_modules/gremlins.js/gremlins.min.js')
-            .executeAsync(unleashGremlins, 50000)
-            .pause(10000)
+            .injectScript('<a href="//cdn.rawgit.com/jpillora/xhook/1.3.1/dist/xhook.min.js">./../node_modules/gremlins.js/gremlins.min.js</a>')
+            // .execute(function(selector) {
+            //         var list = document.querySelector(selector);
+            //         console.log("This will print in the browser itself");
+            //         return list.list;
+            //     },
+            //     [selector],
+            //     function(result) {
+            //         var hotelsFromDom = result.value;
+            //         client.globals.frontEndHotels = result.value;
+            //         //console.log(client.globals.frontEndHotels);
+            //
+            //     })
+            // .executeAsync(function (input, done) {
+            //         loadScript('./../node_modules/gremlins.js/gremlins.min.js');
+            //     },
+            //     ['input'],
+            //     function (result) {
+            //         console.log('result =', result);
+            //     })
+            // .executeAsync(function (input, done) {
+            //         unleashGremlins(50000);
+            //     },
+            //     ['input'],
+            //     function (result) {
+            //         console.log('result =', result);
+            //     })
+            .pause(60000)
             .end();
     }
 };
