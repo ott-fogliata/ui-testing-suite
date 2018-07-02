@@ -5,6 +5,7 @@
   "custom_assertions_path" : "",
   "page_objects_path" : "",
   "globals_path" : "",
+  "test_workers": true,
 
   "selenium" : {
     "start_process" : true,
