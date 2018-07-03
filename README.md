@@ -61,3 +61,9 @@ web app in your browser with `http://$(docker-machine ip):<port>`, you can simpl
 _Both `dinghy` and `dory` are optional dependencies, and one may certainly use the bare-bones Docker ecosystem 
 (and [docker-grid-nightwatch](https://github.com/mycargus/docker-grid-nightwatch)) without them._
 
+### Ehi, pss. There are gremlins!
+
+UI Testing Suite includes gremlins.js package and a sample of it, to learn how to implement monkey test with nightwatch.js.
+Look here: https://github.com/marmelab/gremlins.js/
+
+
