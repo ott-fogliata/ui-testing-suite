@@ -35,6 +35,9 @@ Selenium/Zalenium Grid Console: `http://localhost:4444/grid/console`
 ## Commands
 
 `nightwatch tests/ -c nightwatch_withgraphic.json`
+to execute all tests in the local machine 
+
+`nightwatch tests/amazon.js -c nightwatch_withgraphic.json`
 to execute single test in the local machine 
 
 `npm run build` to build docker containers
