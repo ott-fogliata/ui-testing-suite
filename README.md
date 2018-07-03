@@ -1,6 +1,6 @@
 
 # UI TESTING SUITE
-This is a repository to include a complete UI Testing Suite in your project. It employs dockerized Selenium Grid with Zalenium. Forked from https://github.com/dwyl/learn-nightwatch (I suggest you to have a look), the package includes npm scripts as wrapper for the docker-compose commands.
+This is a repository to include a complete UI Testing Suite in your project. It employs dockerized Selenium Grid (plus Zalenium extension https://github.com/zalando/zalenium). Forked from https://github.com/dwyl/learn-nightwatch (I suggest you to have a look), the package includes npm scripts as wrapper for the docker-compose commands.
 
 ## Learn Nightwatch.js 
 (Keep calm: it's easy)
