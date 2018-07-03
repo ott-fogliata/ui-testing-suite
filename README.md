@@ -1,5 +1,7 @@
 
 # UI TESTING SUITE
+__Nightwatch.js, Selenium and Zalenium__
+
 This is a repository to include a complete UI Testing Suite in your project. It employs dockerized Selenium Grid (plus Zalenium extension https://github.com/zalando/zalenium). Forked from https://github.com/dwyl/learn-nightwatch (I suggest you to have a look), the package includes npm scripts as wrapper for the docker-compose commands.
 
 ## Learn Nightwatch.js 
@@ -21,7 +23,9 @@ web:
     VIRTUAL_HOST: myapp.docker
 ```
 
-### Zalenium Host
+### Zalenium
+This is a Selenium Grid extension to scale your local grid dynamically with docker containers. It uses docker-selenium to run your tests in Firefox and Chrome locally, if you need a different browser, your tests can get redirected to a cloud testing provider (Sauce Labs, BrowserStack, TestingBot). Zalenium also works out of the box in Kubernetes.
+
 `localhost:4444`
 
 __Some useful links:__
