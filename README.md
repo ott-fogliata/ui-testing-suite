@@ -22,9 +22,9 @@ web:
 ```
 
 ### Zalenium Host
-localhost:4444
+`localhost:4444`
 
-####Some useful links:
+__Some useful links:__
 
 Zalenium Dashboard: `http://localhost:4444/dashboard/`
 
