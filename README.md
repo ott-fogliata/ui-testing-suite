@@ -5,7 +5,7 @@ This is a repository to include a complete UI Testing Suite in your project. It 
 ## Learn Nightwatch.js 
 (Keep calm: it's easy)
 
-Read and clone it: https://github.com/dwyl/learn-nightwatch
+Clone and read it: https://github.com/dwyl/learn-nightwatch
 
 ## Where do I add my app?
 (from https://github.com/mycargus/nightwatch-docker-grid)
