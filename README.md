@@ -9,7 +9,8 @@ This is a repository to include a complete UI Testing Suite in your project. It 
 
 Clone and read it: https://github.com/dwyl/learn-nightwatch
 
-## Where do I add my app?
+## Setup
+### Where do I add my app?
 (from https://github.com/mycargus/nightwatch-docker-grid)
 
 You can add web app docker image to the `docker-compose.yml` file.
@@ -36,7 +37,7 @@ Selenium Grid: `http://localhost:4444/grid`
 
 Selenium/Zalenium Grid Console: `http://localhost:4444/grid/console`
 
-## Commands
+### Commands
 
 `nightwatch tests/ -c nightwatch_withgraphic.json`
 to execute all tests in the local machine 
