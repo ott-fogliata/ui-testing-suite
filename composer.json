@@ -1,5 +1,5 @@
 {
-  "name": "ui-testing-suite",
+  "name": "ott-fogliata/ui-testing-suite",
   "license": "Apache 2.0",
   "authors": [
     {
@@ -14,10 +14,5 @@
   "autoload": {
   },
   "target-dir": "UiTestingSuite/Bin",
-  "extra": {
-    "branch-alias": {
-      "dev-master": "4.2-dev"
-    }
-  },
   "minimum-stability": "dev"
 }
