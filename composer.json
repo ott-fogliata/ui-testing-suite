@@ -7,12 +7,16 @@
       "email": "ott.fogliata@gmail.com"
     }
   ],
+  "scripts": {
+    "post-install-cmd": [
+      "echo 'ciaone'"
+    ],
   "require": {
   },
   "require-dev": {
   },
   "autoload": {
   },
-  "target-dir": "UiTestingSuite/Bin",
+  "target-dir": "bin",
   "minimum-stability": "dev"
 }
