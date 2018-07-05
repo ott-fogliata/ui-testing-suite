@@ -19,7 +19,7 @@ services:
     image: "dosel/zalenium"
     tty: true
     volumes:
-      - /tmp/videos:/home/seluser/videos
+#      - /tmp/videos:/home/seluser/videos
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
     hostname: hub

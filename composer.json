@@ -1,0 +1,23 @@
+{
+  "name": "ui-testing-suite",
+  "license": "Apache 2.0",
+  "authors": [
+    {
+      "name": "Ottavio Fogliata",
+      "email": "ott.fogliata@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+  },
+  "autoload": {
+  },
+  "target-dir": "UiTestingSuite/Bin",
+  "extra": {
+    "branch-alias": {
+      "dev-master": "4.2-dev"
+    }
+  },
+  "minimum-stability": "dev"
+}
