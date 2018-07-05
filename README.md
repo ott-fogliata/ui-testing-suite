@@ -1,13 +1,16 @@
 
 # UI TESTING SUITE
-This is a repository to include a complete UI Testing Suite in your project. It employs dockerized Selenium Grid with Zalenium. Forked from https://github.com/dwyl/learn-nightwatch (I suggest you to have a look), the package includes npm scripts as wrapper for the docker-compose commands.
+__Nightwatch.js, Selenium and Zalenium__
+
+This is a repository to include a complete UI Testing Suite in your project. It employs dockerized Selenium Grid (plus Zalenium extension https://github.com/zalando/zalenium). Forked from https://github.com/dwyl/learn-nightwatch (I suggest you to have a look), the package includes npm scripts as wrapper for the docker-compose commands.
 
 ## Learn Nightwatch.js 
-(Keep calm: it's easy)
+> Keep calm: it's easy
 
-Read and clone it: https://github.com/dwyl/learn-nightwatch
+Clone and read it: https://github.com/dwyl/learn-nightwatch
 
-## Where do I add my app?
+## Setup
+### Where do I add my app?
 (from https://github.com/mycargus/nightwatch-docker-grid)
 
 You can add web app docker image to the `docker-compose.yml` file.
@@ -21,10 +24,12 @@ web:
     VIRTUAL_HOST: myapp.docker
 ```
 
-### Zalenium Host
-localhost:4444
+### Zalenium
+This is a Selenium Grid extension to scale your local grid dynamically with docker containers. It uses docker-selenium to run your tests in Firefox and Chrome locally, if you need a different browser, your tests can get redirected to a cloud testing provider (Sauce Labs, BrowserStack, TestingBot). Zalenium also works out of the box in Kubernetes.
 
-####Some useful links:
+`localhost:4444`
+
+__Some useful links:__
 
 Zalenium Dashboard: `http://localhost:4444/dashboard/`
 
@@ -32,7 +37,7 @@ Selenium Grid: `http://localhost:4444/grid`
 
 Selenium/Zalenium Grid Console: `http://localhost:4444/grid/console`
 
-## Commands
+### Commands
 
 `nightwatch tests/ -c nightwatch_withgraphic.json`
 to execute all tests in the local machine 
@@ -56,4 +61,10 @@ web app in your browser with `http://$(docker-machine ip):<port>`, you can simpl
 
 _Both `dinghy` and `dory` are optional dependencies, and one may certainly use the bare-bones Docker ecosystem 
 (and [docker-grid-nightwatch](https://github.com/mycargus/docker-grid-nightwatch)) without them._
+
+### Ehi, pss. There are gremlins!
+
+UI Testing Suite includes gremlins.js package and a sample of it, to learn how to implement monkey test with nightwatch.js.
+Look here: https://github.com/marmelab/gremlins.js/
+
 
