@@ -37,13 +37,13 @@ function dockerSetup {
     sudo apt-key fingerprint 0EBFCD88
     sudo add-apt-repository \
        "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-       $(lsb_release -cs) \
+       bionic \
        stable"
-    sudo apt update
-    sudo docker run hello-world
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     sudo apt install -y docker-ce
     sudo systemctl enable docker
-    sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+    sudo docker run hello-world
+    sudo curl -L https://github.com/docker/compose/releases/download/1.17.1/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
     sudo chmod +x /usr/local/bin/docker-compose
     docker-compose --version
     echo -e "${NC}"
